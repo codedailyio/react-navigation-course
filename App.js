@@ -38,14 +38,19 @@ const ModalScreen = ({ navigation }) => {
   );
 };
 
-const MainNavigator = StackNavigator({
-  Home: {
-    screen: HomeScreen,
+const MainNavigator = StackNavigator(
+  {
+    Home: {
+      screen: HomeScreen,
+    },
+    Profile: {
+      screen: ProfileScreen,
+    },
   },
-  Profile: {
-    screen: ProfileScreen,
+  {
+    headerMode: "none",
   },
-});
+);
 
 const ModalNavigator = StackNavigator(
   {
@@ -57,7 +62,6 @@ const ModalNavigator = StackNavigator(
     },
   },
   {
-    headerMode: "none",
     mode: "modal",
   },
 );
