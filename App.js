@@ -15,6 +15,7 @@ const HomeScreen = ({ navigation }) => {
   );
 };
 
+
 const ProfileScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
@@ -29,7 +30,7 @@ const ProfileScreen = ({ navigation }) => {
 };
 
 const CustomDrawerContentComponent = props => (
-  <ScrollView style={{ flex: 1, paddingTop: 40, }}>
+  <ScrollView style={{ flex: 1, paddingTop: 40 }}>
     <TouchableOpacity onPress={() => props.navigation.navigate("DrawerClose")}>
       <Text>Close Drawer</Text>
     </TouchableOpacity>
@@ -49,12 +50,22 @@ const RootNavigator = DrawerNavigator(
   {
     contentComponent: CustomDrawerContentComponent,
     gesturesEnabled: true,
+    drawerPosition: "left",
+    // drawerOpenRoute: "OpenDrawer",
+    navigationOptions: {
+      // drawerLockMode: "locked-open",
+    },
   },
 );
 
 export default class App extends React.Component {
   render() {
     return <RootNavigator />;
+    /*
+      screenProps={{
+        drawerLockMode: "locked-closed",
+      }}
+    */
   }
 }
 
